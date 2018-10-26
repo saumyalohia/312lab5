@@ -32,10 +32,8 @@ public:
     int getSize() const;
     void setSize(int s);
 
-    //swap
-
-    //bool ==
-    //bool <
-    //bool >
+    bool Song::operator ==(Song const &rhs);
+    bool Song::operator >(Song const &rhs);
+    bool Song::operator <(Song const &rhs);
 
 };

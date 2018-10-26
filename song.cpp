@@ -42,7 +42,7 @@ string Song::getArtist() const
     return artist;
 }
 
-void Song::setArtist(string a) const
+void Song::setArtist(string a)
 {
     artist = a;
 }
@@ -80,4 +80,17 @@ bool Song::operator >(Song const &rhs)
     }
     else
     { return (artist > rhs.artist); }
+}
+
+bool Song::operator <(Song const &rhs)
+{
+    if(artist == rhs.artist)
+    {
+        if(title == rhs.title)
+        { return (size < rhs.size); }
+        else
+        { return (title < rhs.title); }
+    }
+    else
+    { return (artist < rhs.artist); }
 }

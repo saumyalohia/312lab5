@@ -48,6 +48,16 @@ int main(int argc, char *argv[])
     result = t.addSong(s5);
     cout << "add result = " << result << endl;
 
+    if(s1 == s2)
+    {
+        printf("Correct!");
+    }
+    else
+    {
+        printf("Snap you wrong man");
+    }
+
+    /*
     t.showSongList();
 
     result = t.removeSong(s2);
@@ -75,6 +85,7 @@ int main(int argc, char *argv[])
 
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
+    */
 
 
 }
