@@ -6,28 +6,35 @@
 
 using namespace std;
 
-UtPod(int size){}
+UtPod(int size){
+    if (size > MAX_MEMORY || size < 0) {
+        memSize = MAX_MEMORY;
+    }
+    else {
+        memSize = size;
+    }
+}
 
-int addSong(Song const &s) {}
-
-
-int removeSong(Song const &s) {}
-
-
-void shuffle(){}
-
-
-void showSongList(){}
+int UtPod::addSong(Song const &s) {}
 
 
-void sortSongList(){}
+int UtPod::removeSong(Song const &s) {}
 
 
-void clearMemory(){}
+void UtPod::shuffle(){}
 
 
-int getTotalMemory() {
+void UtPod::showSongList(){}
+
+
+void UtPod::sortSongList(){}
+
+
+void UtPod::clearMemory(){}
+
+
+int UtPod::getTotalMemory() {
     return memSize;
 }
 
-int getRemainingMemory{}
+int UtPod::getRemainingMemory{}
