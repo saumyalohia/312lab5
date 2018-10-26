@@ -64,6 +64,7 @@ bool Song::operator ==(Song const &rhs)
            size == rhs.size);
 }
 
+/*
 bool Song::operator >(Song const &rhs)
 {
     if(artist == rhs.artist)
@@ -89,3 +90,4 @@ bool Song::operator <(Song const &rhs)
     else
     { return (artist < rhs.artist); }
 }
+ */

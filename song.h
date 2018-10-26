@@ -32,8 +32,9 @@ public:
     int getSize() const;
     void setSize(int s);
 
-    bool Song::operator ==(Song const &rhs);
-    bool Song::operator >(Song const &rhs);
-    bool Song::operator <(Song const &rhs);
-
+    bool operator ==(Song const &rhs);
+    /*
+    bool operator >(Song const &rhs);
+    bool operator <(Song const &rhs);
+    */
 };

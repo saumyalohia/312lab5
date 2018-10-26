@@ -87,5 +87,6 @@ int main(int argc, char *argv[])
     cout << "memory = " << t.getRemainingMemory() << endl;
     */
 
+    return 0;
 
 }
