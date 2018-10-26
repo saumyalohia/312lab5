@@ -18,6 +18,24 @@ private:
     string artist;
     int size;
 
+    static const int MAX_SIZE = 512;
+
 public:
+    Song();
+    Song(string title);
+    Song(string title, string artist, int size);
+
+    string getTitle() const;
+    void setTitle(string t);
+    string getArtist() const;
+    void setArtist(string a);
+    int getSize() const;
+    void setSize(int s);
+
+    //swap
+
+    //bool ==
+    //bool <
+    //bool >
 
 };
