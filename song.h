@@ -6,3 +6,18 @@
 #define UNTITLED3_SONG_H
 
 #endif //UNTITLED3_SONG_H
+
+#include <string>
+
+using namespace std;
+
+class Song {
+
+private:
+    string title;
+    string artist;
+    int size;
+
+public:
+
+};
