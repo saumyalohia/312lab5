@@ -57,16 +57,11 @@ void Song::setSize(int s)
     this->size = s;
 }
 
-bool Song::operator >(Song const &rhs)
-{
-    return (size < rhs.size);
-}
-
 bool Song::operator ==(Song const &rhs)
 {
     return(title == rhs.title &&
-            artist == rhs.artist &&
-            size == rhs.size);
+           artist == rhs.artist &&
+           size == rhs.size);
 }
 
 bool Song::operator >(Song const &rhs)
