@@ -35,11 +35,11 @@ int UtPod::addSong(Song const &s) {
 
         SongNode *temp = new SongNode();    // create temporary node
         temp->s = s;
+        temp->next = songs;
         songs = temp;
-        //delete temp;
 
         memSize -= s.getSize();             // update memory size left
-        printf("%d\n", memSize);
+        //printf("%d\n", memSize);
         return SUCCESS;
     }
 }
@@ -47,7 +47,7 @@ int UtPod::addSong(Song const &s) {
 
 int UtPod::removeSong(Song const &s) {
 
-    if(songs->next == nullptr){
+    if(songs == nullptr){
         // No songs in UtPod
         return NO_MEMORY;
     }else {
@@ -56,14 +56,11 @@ int UtPod::removeSong(Song const &s) {
         memSize += s.getSize();         // Update memory size
 
         SongNode *temp = songs;
-        songs->s = temp->next->s;       // Get previous song
-        songs->next = temp->next->next; // Skip previous node
+        songs = songs->next; // Skip previous node
         delete temp;
 
         return SUCCESS;
     }
-
-    return 0;
 }
 
 

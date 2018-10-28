@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
     cout << "Hello World" << endl;
 
     UtPod t;
-    cout << "Hello World again" << endl;
 
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
@@ -49,19 +48,11 @@ int main(int argc, char *argv[])
 
     Song s5("Beatles", "Hey Jude5", 241);
     result = t.addSong(s5);
-    cout << "add result = " << result << endl;
-
-    if(s1 == s2)
-    {
-        printf("Correct!");
-    }
-    else
-    {
-        printf("Snap you wrong man");
-    }
-
+    cout << "result = " << result << endl;
 
     t.showSongList();
+
+
 
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -79,6 +70,7 @@ int main(int argc, char *argv[])
 
     result = t.removeSong(s4);
     cout << "delete result = " << result << endl;
+
 
 
     t.showSongList();
