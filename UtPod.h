@@ -1,13 +1,9 @@
-#include <iostream>
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}//DOCUMENT HERE
+//DOCUMENT HERE
 
 #ifndef UTPOD_H
 #define UTPOD_H
-#include "Song.h"
+#include "song.h"
+
 
 //UtPod class declaration
 class UtPod
@@ -46,9 +42,9 @@ public:
 
      precondition: s is a valid Song
 
-     input parms -
+     input parms - Song (title, artist, size)
 
-     output parms -
+     output parms - 0 or -1 if enough memory or not
     */
 
     int addSong(Song const &s);
@@ -61,9 +57,9 @@ public:
          o returns -1 if nothing is removed
 
 
-       input parms -
+       input parms - Song (title, artist, size)
 
-       output parms -
+       output parms - 0 or -1 if successful or not
     */
 
     int removeSong(Song const &s);
@@ -124,9 +120,7 @@ public:
        output parms -
     */
 
-    int getTotalMemory() {
-        return memSize;
-    }
+    int getTotalMemory();
 
 
 
@@ -141,10 +135,9 @@ public:
     int getRemainingMemory();
 
 
-    ~UtPod();
+    //~UtPod();
 
 };
 
-
-
 #endif
+

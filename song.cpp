@@ -28,34 +28,22 @@ Song::Song(string _title, string _artist, int _size)
 }
 
 string Song::getTitle() const
-{
-    return title;
-}
+{ return title; }
 
 void Song::setTitle(string t)
-{
-    title = t;
-}
+{ title = t; }
 
 string Song::getArtist() const
-{
-    return artist;
-}
+{ return artist; }
 
 void Song::setArtist(string a)
-{
-    artist = a;
-}
+{ artist = a; }
 
 int Song::getSize() const
-{
-    return size;
-}
+{ return size; }
 
 void Song::setSize(int s)
-{
-    this->size = s;
-}
+{ this->size = s; }
 
 bool Song::operator ==(Song const &rhs)
 {
@@ -64,7 +52,7 @@ bool Song::operator ==(Song const &rhs)
            size == rhs.size);
 }
 
-/*
+
 bool Song::operator >(Song const &rhs)
 {
     if(artist == rhs.artist)
@@ -90,4 +78,3 @@ bool Song::operator <(Song const &rhs)
     else
     { return (artist < rhs.artist); }
 }
- */

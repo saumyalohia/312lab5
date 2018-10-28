@@ -6,19 +6,65 @@
 
 using namespace std;
 
-UtPod(int size){
+UtPod::UtPod()
+{
+    memSize = MAX_MEMORY;
+    songs = nullptr;
+}
+
+UtPod::UtPod(int size)
+{
     if (size > MAX_MEMORY || size < 0) {
         memSize = MAX_MEMORY;
     }
     else {
         memSize = size;
     }
+
+    songs = nullptr;
 }
 
-int UtPod::addSong(Song const &s) {}
+
+int UtPod::addSong(Song const &s) {
+
+    if(( memSize - s.getSize() ) < 0){
+        // Not enough memory
+        return NO_MEMORY;
+    }else{
+        // Enough memory, so we can add song
+
+        SongNode *temp = new SongNode();    // create temporary node
+        temp->s = s;
+        songs = temp;
+        //delete temp;
+
+        memSize -= s.getSize();             // update memory size left
+        printf("%d\n", memSize);
+        return SUCCESS;
+    }
+}
 
 
-int UtPod::removeSong(Song const &s) {}
+int UtPod::removeSong(Song const &s) {
+
+    if(songs->next == nullptr){
+        // No songs in UtPod
+        return NO_MEMORY;
+    }else {
+        // Song is there can delete last song added
+
+        memSize += s.getSize();         // Update memory size
+
+        SongNode *temp = songs;
+        songs->s = temp->next->s;       // Get previous song
+        songs->next = temp->next->next; // Skip previous node
+        delete temp;
+
+        return SUCCESS;
+    }
+
+    return 0;
+}
 
 
 void UtPod::shuffle(){}
@@ -37,4 +83,8 @@ int UtPod::getTotalMemory() {
     return memSize;
 }
 
-int UtPod::getRemainingMemory{}
+int UtPod::getRemainingMemory(){
+    return MAX_MEMORY - memSize;
+}
+
+

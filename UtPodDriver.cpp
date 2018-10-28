@@ -15,14 +15,17 @@ You will want to do more complete testing.
 */
 #include <cstdlib>
 #include <iostream>
-#include "song.h"
+//#include "song.h"
 #include "UtPod.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
+    cout << "Hello World" << endl;
+
     UtPod t;
+    cout << "Hello World again" << endl;
 
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
@@ -57,7 +60,7 @@ int main(int argc, char *argv[])
         printf("Snap you wrong man");
     }
 
-    /*
+
     t.showSongList();
 
     result = t.removeSong(s2);
@@ -85,8 +88,8 @@ int main(int argc, char *argv[])
 
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
-    */
 
-    return 0;
+
+    //return (0);
 
 }
