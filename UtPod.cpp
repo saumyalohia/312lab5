@@ -10,6 +10,8 @@ UtPod::UtPod()
 {
     memSize = MAX_MEMORY;
     songs = nullptr;
+
+    // NEED TO GET INPUT FROM TXT FILE AND CREATE LIST and GET NUM SONGS
 }
 
 UtPod::UtPod(int size)
@@ -22,6 +24,25 @@ UtPod::UtPod(int size)
     }
 
     songs = nullptr;
+}
+
+
+
+int UtPod::numSongs()
+{
+    SongNode *temp = songs;
+    int count = 1;
+    if(temp == nullptr)
+    {
+        return 0;
+    }
+    while(temp->next != nullptr)
+    {
+        count++;
+        temp = temp->next;
+    }
+    delete temp;
+    return count;
 }
 
 
@@ -87,7 +108,7 @@ int UtPod::removeSong(Song const &s) {
         else
         {
             // All songs in the list do not equal input song to delete (or has already been deleted)
-            return NOT_FOUND;
+            return NO_MEMORY;
         }
     }
 
@@ -134,4 +155,4 @@ int UtPod::getRemainingMemory(){
     return MAX_MEMORY - memSize;
 }
 
-
+//UtPod::~UtPod(){}

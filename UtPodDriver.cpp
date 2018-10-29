@@ -26,6 +26,11 @@ int main(int argc, char *argv[])
 
     UtPod t;
 
+    
+    int nsongs = t.numSongs();
+    cout << "Num songs = " << nsongs << endl;
+
+
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
     cout << "result = " << result << endl;
@@ -56,7 +61,6 @@ int main(int argc, char *argv[])
     //cout << "memory = " << t.getTotalMemory() << endl;
 
     t.showSongList();
-
 
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -89,7 +93,5 @@ int main(int argc, char *argv[])
     //t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
     //cout << "memory = " << t.getTotalMemory() << endl;
-
-    //return (0);
 
 }

@@ -35,6 +35,8 @@ public:
     //set the size to MAX_MEMORY.
     UtPod(int size);
 
+    int numSongs();
+
     /* FUNCTION - int addSong
      * attempts to add a new song to the UtPod
          o returns a 0 if successful
@@ -59,7 +61,7 @@ public:
 
        input parms - Song (title, artist, size)
 
-       output parms - 0 or -1 if successful or not
+       output parms - 0 if successful or -1 if not found
     */
 
     int removeSong(Song const &s);
@@ -69,9 +71,9 @@ public:
      *  shuffles the songs into random order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - NA
     */
 
     void shuffle();
@@ -81,9 +83,9 @@ public:
      * prints the current list of songs in order from first to last to standard output
      * format - Title, Artist, size in MB (one song per line)
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - song list
     */
 
     void showSongList();
