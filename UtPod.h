@@ -76,6 +76,8 @@ public:
        output parms - NA
     */
 
+    void swap(Song const &s);
+
     void shuffle();
 
 

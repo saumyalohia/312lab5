@@ -134,6 +134,7 @@ int UtPod::removeSong(Song const &s) {
     }
 }
 
+void UtPod::swap() {}
 
 void UtPod::shuffle(){}
 
