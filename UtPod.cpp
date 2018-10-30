@@ -10,8 +10,6 @@ UtPod::UtPod()
 {
     memSize = MAX_MEMORY;
     songs = nullptr;
-
-    // NEED TO GET INPUT FROM TXT FILE AND CREATE LIST and GET NUM SONGS
 }
 
 UtPod::UtPod(int size)
