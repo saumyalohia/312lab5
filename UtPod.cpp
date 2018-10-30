@@ -132,7 +132,11 @@ int UtPod::removeSong(Song const &s) {
     }
 }
 
-void UtPod::swap() {}
+void UtPod::swap(Song const &s2) {
+    Song temp = s2;
+    s2 = *this;
+    *this = temp;
+}
 
 void UtPod::shuffle(){}
 
