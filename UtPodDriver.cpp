@@ -26,11 +26,6 @@ int main(int argc, char *argv[])
 
     UtPod t;
 
-
-    int nsongs = t.numSongs();
-    cout << "Num songs = " << nsongs << endl;
-
-
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
     cout << "result = " << result << endl;
