@@ -3,6 +3,8 @@
 //
 
 #include "UtPod.h"
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -136,7 +138,15 @@ int UtPod::removeSong(Song const &s) {
 void UtPod::shuffle(){}
 
 
-void UtPod::showSongList(){}
+void UtPod::showSongList()
+{
+    SongNode *pointer = songs;
+    while(pointer != nullptr)
+    {
+        cout << pointer->s.getArtist() << " " << pointer->s.getTitle() << " " << pointer->s.getSize() << endl;
+        pointer = pointer->next;
+    }
+}
 
 
 void UtPod::sortSongList(){}
