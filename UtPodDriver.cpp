@@ -52,6 +52,12 @@ int main(int argc, char *argv[])
 
     cout << "-------------------------------------------" << endl;
 
-    //t.clearMemory();
-    //t.showSongList();
+    t.shuffle();
+
+    cout << "-------------------------------------------" << endl;
+
+    t.clearMemory();
+    t.showSongList();
+
+    cout << "done";
 }
