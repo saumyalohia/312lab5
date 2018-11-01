@@ -162,7 +162,33 @@ void UtPod::sortSongList()
 {
     // Create new UtPod
     UtPod sorted;
-    
+    SongNode *head = this->songs;
+
+    // Copy content of original UtPod to sorted UtPod
+    while(head != nullptr)
+    {
+        sorted.addSong(head->s);
+        head = head->next;
+    }
+
+    // Sort function
+    head = sorted.songs;    // top of unsorted section of list
+    SongNode *compare;      // everything of the unsorted section except for the top
+    while(head->next != nullptr)
+    {
+        compare = head->next;
+        while(compare != nullptr)
+        {
+            if(head->s > compare->s)        // if top of unsorted list > any node below it, swap
+            { head->s.swap(compare->s); }
+            compare = compare->next;
+        }
+        // after while loop is finished, head is now a sorted item
+        head = head->next;                  // update sorted section of list
+    }
+
+    // Have original UtPod point to sorted list
+    *this = sorted;
 }
 
 
