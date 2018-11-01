@@ -5,6 +5,7 @@
 #include "UtPod.h"
 #include <cstdlib>
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -142,14 +143,13 @@ void UtPod::shuffle(){
 
     srand(currentTime);  //seed the random number generator
 
-    for (int i = 0; i < 10; i++) {
-        long die1 = (rand() % numSides) + 1;
-        long die2 = (rand() % numSides) + 1;
-        cout << die1 << " + " << die2 << " = " << die1+die2 <<endl;
+    for (int i = 0; i < 2*numSongs(); i++) {
+        long song1 = (rand());
+        long song2 = (rand());
+        cout << song1 << " + " << song2 << " = " << song1+song2 <<endl;
+
     }
 
-
-    return EXIT_SUCCESS;
 }
 
 
