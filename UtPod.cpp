@@ -12,6 +12,7 @@ using namespace std;
 UtPod::UtPod()
 {
     memSize = MAX_MEMORY;
+    totSize = MAX_MEMORY;
     songs = NULL;
 }
 
