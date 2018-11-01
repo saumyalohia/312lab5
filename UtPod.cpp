@@ -198,7 +198,22 @@ void UtPod::sortSongList(){
 }
 
 
-void UtPod::clearMemory(){}
+void UtPod::clearMemory(){
+    SongNode *temp;
+    while(songs->next != nullptr)
+    {
+        temp = songs;
+        songs = songs->next;
+        delete temp;
+    }
+
+    if(songs->next == nullptr)
+    {
+        temp = songs;
+        songs = nullptr;
+        delete temp;
+    }
+}
 
 
 int UtPod::getTotalMemory() {
