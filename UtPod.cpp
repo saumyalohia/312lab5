@@ -142,17 +142,47 @@ int UtPod::removeSong(Song const &s) {
 }
 
 void UtPod::shuffle(){
-    //unsigned int currentTime =  (unsigned)time(0);
-    unsigned int currentTime =  42;
-    cout << "current time " << currentTime << endl;
+    unsigned int currentTime =  (unsigned)time(0);
+    //unsigned int currentTime =  16;
+    SongNode *head = this->songs;
+    //cout << "current time " << currentTime << endl;
 
     srand(currentTime);  //seed the random number generator
+
+    //showSongList();
 
     for (int i = 0; i < 2*numSongs(); i++) {
 
         long song1 = (rand() % numSongs()) + 1;
         long song2 = (rand() % numSongs()) + 1;
-        cout << song1 << " + " << song2 << " = " << song1+song2 <<endl;
+        //long song1 = 1;
+        //long song2 = 3;
+        //cout << song1 << " + " << song2 << " = " << song1+song2 <<endl;
+
+        SongNode *p1;
+        SongNode *p2;
+
+        head = this->songs;
+
+        for (int i = 1; i < song1; i++) {
+            head = head->next;
+        }
+
+        p1 = head;
+
+        //cout << p1->s.getTitle() << endl;
+
+        head = this->songs;
+
+        for (int i = 1; i < song2; i++) {
+            head = head->next;
+        }
+
+        p2 = head;
+
+        //cout << p2->s.getTitle() << endl;
+
+        p1->s.swap(p2->s);
 
     }
 

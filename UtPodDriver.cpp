@@ -34,12 +34,11 @@ int main(int argc, char *argv[])
     Song s5("Beatles", "Hey Jude5", 241);
     Song s6("Beatles", "Hey Jude1", 6);
 
-    t.addSong(s5);
+    t.addSong(s6);
     t.addSong(s2);
     t.addSong(s3);
-    t.addSong(s1);
     t.addSong(s4);
-    t.addSong(s6);
+    t.addSong(s5);
 
     cout << "-------------------------------------------" << endl;
 
@@ -53,6 +52,8 @@ int main(int argc, char *argv[])
     cout << "-------------------------------------------" << endl;
 
     t.shuffle();
+
+    t.showSongList();
 
     cout << "-------------------------------------------" << endl;
 
