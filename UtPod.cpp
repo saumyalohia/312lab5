@@ -46,6 +46,13 @@ int UtPod::numSongs()
     return count;
 }
 
+void Song::swap(Song &s2)
+{
+    Song temp = s2;
+    s2 = *this;
+    *this = temp;
+}
+
 
 int UtPod::addSong(Song const &s) {
 
@@ -134,7 +141,6 @@ int UtPod::removeSong(Song const &s) {
         return SUCCESS;
     }
 }
-
 
 void UtPod::shuffle(){
     unsigned int currentTime =  (unsigned)time(0);
