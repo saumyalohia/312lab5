@@ -12,7 +12,7 @@ using namespace std;
 UtPod::UtPod()
 {
     memSize = MAX_MEMORY;
-    songs = nullptr;
+    songs = NULL;
 }
 
 UtPod::UtPod(int size)
@@ -24,7 +24,7 @@ UtPod::UtPod(int size)
         memSize = size;
     }
 
-    songs = nullptr;
+    songs = NULL;
 }
 
 
@@ -33,11 +33,11 @@ int UtPod::numSongs()
 {
     SongNode *temp = songs;
     int count = 1;
-    if(temp == nullptr)
+    if(temp == NULL)
     {
         return 0;
     }
-    while(temp->next != nullptr)
+    while(temp->next != NULL)
     {
         count++;
         temp = temp->next;
@@ -83,9 +83,9 @@ int UtPod::removeSong(Song const &s) {
         SongNode *temp = songs;
 
         // When song to delete is the only node in the list
-        if(songs->next == nullptr)
+        if(songs->next == NULL)
         {
-            songs = nullptr;        // set next to nullptr
+            songs = NULL;        // set next to NULL
             delete temp;
 
             return SUCCESS;
@@ -107,7 +107,7 @@ int UtPod::removeSong(Song const &s) {
     while(!(curr->s == s))
     {
         // keep incrementing curr and prev until found
-        if(curr->next != nullptr)
+        if(curr->next != NULL)
         {
             prev = curr;
             curr = curr->next;
@@ -124,9 +124,9 @@ int UtPod::removeSong(Song const &s) {
     memSize += s.getSize();
 
     // If the node to delete is the tail node (points to null)
-    if(curr->next == nullptr)
+    if(curr->next == NULL)
     {
-        prev->next = nullptr;       // set the prev node to null (skip over tail node)
+        prev->next = NULL;       // set the prev node to null (skip over tail node)
         delete curr;
 
         return SUCCESS;
@@ -194,7 +194,7 @@ void UtPod::shuffle(){
 void UtPod::showSongList()
 {
     SongNode *pointer = songs;
-    while(pointer != nullptr)
+    while(pointer != NULL)
     {
         cout << pointer->s.getArtist() << " " << pointer->s.getTitle() << " " << pointer->s.getSize() << endl;
         pointer = pointer->next;
@@ -209,10 +209,10 @@ void UtPod::sortSongList(){
 
         // Sort function
         SongNode *compare;      // everything of the unsorted section except for the top
-        while(head->next != nullptr)
+        while(head->next != NULL)
         {
             compare = head->next;
-            while(compare != nullptr)
+            while(compare != NULL)
             {
                 if(head->s > compare->s)        // if top of unsorted list > any node below it, swap
                 { head->s.swap(compare->s); }
@@ -229,20 +229,20 @@ void UtPod::sortSongList(){
 void UtPod::clearMemory(){
     SongNode *temp;
 
-    if (songs == nullptr) {
+    if (songs == NULL) {
         return;
     }
-    while(songs->next != nullptr)
+    while(songs->next != NULL)
     {
         temp = songs;
         songs = songs->next;
         delete temp;
     }
 
-    if(songs->next == nullptr)
+    if(songs->next == NULL)
     {
         temp = songs;
-        songs = nullptr;
+        songs = NULL;
         delete temp;
     }
 }
