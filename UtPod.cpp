@@ -144,7 +144,7 @@ int UtPod::removeSong(Song const &s) {
 void UtPod::shuffle(){
     unsigned int currentTime =  (unsigned)time(0);
     //unsigned int currentTime =  16;
-    SongNode *head = this->songs;
+    SongNode *head;
     //cout << "current time " << currentTime << endl;
 
     srand(currentTime);  //seed the random number generator
@@ -203,20 +203,11 @@ void UtPod::showSongList()
 
 
 void UtPod::sortSongList(){
-        // Create new UtPod
-        UtPod sorted;
 
         SongNode *head = this->songs;
 
-        // Copy content of original UtPod to sorted UtPod
-        while(head != nullptr)
-        {
-            sorted.addSong(head->s);
-            head = head->next;
-        }
 
         // Sort function
-        head = sorted.songs;    // top of unsorted section of list
         SongNode *compare;      // everything of the unsorted section except for the top
         while(head->next != nullptr)
         {
@@ -232,7 +223,6 @@ void UtPod::sortSongList(){
         }
 
         // Have original UtPod point to sorted list
-        *this = sorted;
 }
 
 
@@ -266,4 +256,6 @@ int UtPod::getRemainingMemory(){
     return MAX_MEMORY - memSize;
 }
 
-//UtPod::~UtPod(){}
+UtPod::~UtPod(){
+    clearMemory();
+}

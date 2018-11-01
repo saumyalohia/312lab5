@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     cout << "-------------------------------------------" << endl;
 
-    t.clearMemory();
+    //t.clearMemory();
     t.showSongList();
 
     cout << "done";

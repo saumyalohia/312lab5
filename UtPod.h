@@ -140,7 +140,7 @@ public:
     int getRemainingMemory();
 
 
-    //~UtPod();
+    ~UtPod();
 
 };
 
