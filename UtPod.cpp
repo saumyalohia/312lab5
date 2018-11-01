@@ -46,7 +46,15 @@ int UtPod::numSongs()
 }
 
 
-int UtPod::addSong(Song const &s) {
+void Song::swap(Song &s2)
+{
+    Song temp = s2;
+    s2 = *this;
+    *this = temp;
+}
+
+int UtPod::addSong(Song const &s)
+{
 
     if(( memSize - s.getSize() ) < 0){
         // Not enough memory
@@ -66,7 +74,8 @@ int UtPod::addSong(Song const &s) {
 }
 
 
-int UtPod::removeSong(Song const &s) {
+int UtPod::removeSong(Song const &s)
+{
 
     // When song to delete is the head node
     if(songs->s == s)
@@ -149,18 +158,69 @@ void UtPod::showSongList()
 }
 
 
-void UtPod::sortSongList(){}
+void UtPod::sortSongList()
+{
+    // Create new UtPod
+    UtPod sorted;
+
+    SongNode *head = this->songs;
+
+    // Copy content of original UtPod to sorted UtPod
+    while(head != nullptr)
+    {
+        sorted.addSong(head->s);
+        head = head->next;
+    }
+
+    // Sort function
+    head = sorted.songs;    // top of unsorted section of list
+    SongNode *compare;      // everything of the unsorted section except for the top
+    while(head->next != nullptr)
+    {
+        compare = head->next;
+        while(compare != nullptr)
+        {
+            if(head->s > compare->s)        // if top of unsorted list > any node below it, swap
+            { head->s.swap(compare->s); }
+            compare = compare->next;
+        }
+        // after while loop is finished, head is now a sorted item
+        head = head->next;                  // update sorted section of list
+    }
+
+    // Have original UtPod point to sorted list
+    *this = sorted;
+}
 
 
-void UtPod::clearMemory(){}
+void UtPod::clearMemory()
+{
+    SongNode *temp;
+    while(songs->next != nullptr)
+    {
+        temp = songs;
+        songs = songs->next;
+        delete temp;
+    }
+
+    if(songs->next == nullptr)
+    {
+        temp = songs;
+        songs = nullptr;
+        delete temp;
+    }
+}
 
 
-int UtPod::getTotalMemory() {
+int UtPod::getTotalMemory()
+{
     return memSize;
 }
 
-int UtPod::getRemainingMemory(){
+int UtPod::getRemainingMemory()
+{
     return MAX_MEMORY - memSize;
 }
+
 
 //UtPod::~UtPod(){}

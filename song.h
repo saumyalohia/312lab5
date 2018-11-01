@@ -27,6 +27,7 @@ public:
     Song(string title, string artist, int size);
 
     // Mutator Functions
+    void swap(Song &p);
     string getTitle() const;
     void setTitle(string t);
     string getArtist() const;
