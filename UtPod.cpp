@@ -19,9 +19,11 @@ UtPod::UtPod(int size)
 {
     if (size > MAX_MEMORY || size < 0) {
         memSize = MAX_MEMORY;
+        totSize = MAX_MEMORY;
     }
     else {
         memSize = size;
+        totSize = size;
     }
 
     songs = NULL;
@@ -142,6 +144,11 @@ int UtPod::removeSong(Song const &s) {
 }
 
 void UtPod::shuffle(){
+
+    if (numSongs() < 2) {
+        return;
+    }
+
     unsigned int currentTime =  (unsigned)time(0);
     //unsigned int currentTime =  16;
     SongNode *head;
@@ -204,25 +211,28 @@ void UtPod::showSongList()
 
 void UtPod::sortSongList(){
 
-        SongNode *head = this->songs;
+    if (numSongs() < 2) {
+        return;
+    }
+    SongNode *head = this->songs;
 
 
-        // Sort function
-        SongNode *compare;      // everything of the unsorted section except for the top
-        while(head->next != NULL)
+    // Sort function
+    SongNode *compare;      // everything of the unsorted section except for the top
+    while(head->next != NULL)
+    {
+        compare = head->next;
+        while(compare != NULL)
         {
-            compare = head->next;
-            while(compare != NULL)
-            {
-                if(head->s > compare->s)        // if top of unsorted list > any node below it, swap
-                { head->s.swap(compare->s); }
-                compare = compare->next;
-            }
-            // after while loop is finished, head is now a sorted item
-            head = head->next;                  // update sorted section of list
+            if(head->s > compare->s)        // if top of unsorted list > any node below it, swap
+            { head->s.swap(compare->s); }
+            compare = compare->next;
         }
+        // after while loop is finished, head is now a sorted item
+        head = head->next;                  // update sorted section of list
+    }
 
-        // Have original UtPod point to sorted list
+    // Have original UtPod point to sorted list
 }
 
 
@@ -249,11 +259,11 @@ void UtPod::clearMemory(){
 
 
 int UtPod::getTotalMemory() {
-    return memSize;
+    return totSize;
 }
 
 int UtPod::getRemainingMemory(){
-    return MAX_MEMORY - memSize;
+    return memSize;
 }
 
 UtPod::~UtPod(){

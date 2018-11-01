@@ -23,6 +23,7 @@ private:
     SongNode *songs;  //the head pointer
 
     int memSize;
+    int totSize;
 
     int numSongs();
 
@@ -77,7 +78,6 @@ public:
        output parms - NA
     */
 
-    void swap(Song const &s);
 
     void shuffle();
 
@@ -98,9 +98,9 @@ public:
      *  sorts the songs in ascending order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - NA
     */
 
     void sortSongList();
@@ -109,9 +109,9 @@ public:
     /* FUNCTION - void clearMemory
      * clears all the songs from memory
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - NA
     */
     void clearMemory();
 
@@ -120,9 +120,9 @@ public:
      *  returns the total amount of memory in the UtPod
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - totSize of UtPod
     */
 
     int getTotalMemory();
@@ -132,9 +132,9 @@ public:
     /* FUNCTION - int getRemainingMemory
      *  returns the amount of memory available for adding new songs
 
-       input parms -
+       input parms - pointer to UtPod
 
-       output parms -
+       output parms - memSize of UtPod
     */
 
     int getRemainingMemory();
