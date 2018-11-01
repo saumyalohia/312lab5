@@ -134,8 +134,29 @@ int UtPod::removeSong(Song const &s) {
     }
 }
 
+void UtPod::swap(Song const &s2) {
+  Song temp = s2;
+  s2 = *this;
+  *this = temp;
+}
 
-void UtPod::shuffle(){}
+
+void UtPod::shuffle(){
+    unsigned int currentTime =  (unsigned)time(0);
+    //
+    cout << "current time " << currentTime << endl;
+
+    srand(currentTime);  //seed the random number generator
+
+    for (int i = 0; i < 10; i++) {
+        long song1 = (rand() % numSides) + 1;
+        long song2 = (rand() % numSides) + 1;
+        cout << song1 << " + " << song2 << " = " << song1+song2 <<endl;
+    }
+
+
+    return EXIT_SUCCESS;
+}
 
 
 void UtPod::showSongList()
@@ -149,7 +170,8 @@ void UtPod::showSongList()
 }
 
 
-void UtPod::sortSongList(){}
+void UtPod::sortSongList(){
+}
 
 
 void UtPod::clearMemory(){}
