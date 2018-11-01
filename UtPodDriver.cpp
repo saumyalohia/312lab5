@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     UtPod t;
 
-    Song s1("Beatles", "Hey Jude1", 4);
+    Song s1("Panic! at the Disco", "Hey Look Ma I Made It", 31);
     Song s2("Beatles", "Hey Jude2", 5);
     Song s3("Beatles", "Hey Jude3", 6);
     Song s4("Beatles", "Hey Jude4", 7);
