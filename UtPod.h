@@ -24,6 +24,8 @@ private:
 
     int memSize;
 
+    int numSongs();
+
 public:
     //Default constructor
     //set the memory size to MAX_MEMORY
@@ -35,8 +37,7 @@ public:
     //set the size to MAX_MEMORY.
     UtPod(int size);
 
-    int numSongs();
-
+    
     /* FUNCTION - int addSong
      * attempts to add a new song to the UtPod
          o returns a 0 if successful
