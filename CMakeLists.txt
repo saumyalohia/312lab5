@@ -5,8 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(
-        312lab5
+add_executable(312lab5
         song.cpp
         song.h
         UtPod.cpp

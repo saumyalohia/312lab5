@@ -58,7 +58,7 @@ void Song::swap(Song &s2)
 
 int UtPod::addSong(Song const &s) {
 
-    if(( memSize - s.getSize() ) < 0){
+    if(( memSize - s.getSize() ) <= 0){
         // Not enough memory
         return NO_MEMORY;
     }else{
